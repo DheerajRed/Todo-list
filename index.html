@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    
+        
+            <div id="title">
+                <h1>Todo list</h1>
+            </div>
+            <div id="body" >
+                <input type="text" name="todo" id="todo">
+                <button id="button">Add</button>
+            </div>
+            <div id="display" style="width: 250px ; font-size: 30px;"></div>
+      
+        
+            <div id="completedtask" style="width:250px; display: inline-block;">
+               <button id="button3">completed Tasks</button>
+            </div>
+    
+    <script>
+        //getting values from div,input ,button which are defined above
+        var display = document.getElementById('display')
+        var item = document.getElementById('todo')
+        var button = document.getElementById('button')
+        var completedone= document.getElementById('completedtask')
+        //storing and dispalying elements on screen after adding item
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            //creating an element list
+            var list = document.createElement('li')
+            //pushing the list element inside div which is defined above
+            display.appendChild(list)
+            //Adding the content which we got from input value to the list element
+            list.textContent = item.value
+            //creating a delete button
+            
+            var deleteitem = document.createElement('button')
+            deleteitem.textContent = "X"
+            //adding delete button inside the list element
+            display.appendChild(deleteitem)
+            var checkbox = document.createElement('input')
+            //adding to checkbox to mark completed tasks in todo list
+            checkbox.type = "checkbox"
+            checkbox.className = "check"
+            list.appendChild(checkbox)
+            //adding a function to delete tasks which we do not want
+            checkbox.addEventListener('click',function(){
+                
+                //creating an element which stores completed tasks
+                var completed= document.createElement('li')
+                //appending completed element to completedtasks div which we are declared above
+                completedone.appendChild(completed)
+                if(checkbox.checked==true){
+                  if(confirm('Have you really completed this task')){
+                    completed.textContent=list.textContent;
+                    list.textContent="completed";
+                    completed.style.visibility='hidden'
+                    
+                  }
+                  else{
+                    alert('complete it')
+                    checkbox.checked=false;
+                  }
+                    
+                }
+                var button3=document.getElementById('button3')
+                button3.addEventListener('click',function(){
+                    completed.style.visibility="visible"
+                    
+                })
+                deleteitem.addEventListener('click',function(){
+                    completed.remove()
+                })
+
+            })
+            deleteitem.addEventListener('click', function () {
+                list.remove()
+                deleteitem.remove();
+                list.textContent.remove();
+                
+            })
+           
+        })
+    </script>
+</body>
+
+</html>

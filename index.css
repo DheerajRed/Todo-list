@@ -1,0 +1,63 @@
+body{
+    background-color: rgb(135, 141, 79);
+    
+}
+#body input{
+    border: 2px solid black;
+    display: inline-block;
+}
+#body button{
+    border: 2px solid black;
+}
+#display{
+    display: inline-block;
+}
+#display li{
+    border: 2px solid rgb(7, 7, 7);
+    width: 200px;
+    list-style-type: none;
+    margin:30px 0px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    display: inline-block;
+}
+#display input{
+    float: right;
+    height: 25px;
+    width: 25px;
+    position: relative;
+    left: 80px;
+    top: 5px;
+}
+#display button{
+float: right;
+font-size: 20px;
+position: relative;
+top: 35px;
+}
+
+#completedtask{
+    display: flex;
+    position: fixed;
+    left: 500px;
+    top: 50px;
+    font-size: 30px;
+   
+}
+#completedtask li{
+    list-style: none;
+    color: green;
+    padding: 15px;
+    
+}
+#button3{
+    font-size: 30px;
+    background-color: black;
+    color: white;
+}
+#button3:active{
+    text-decoration: underline;
+}
+
+
+
